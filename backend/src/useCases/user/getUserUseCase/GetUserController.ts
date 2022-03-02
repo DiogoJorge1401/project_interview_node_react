@@ -6,7 +6,7 @@ export class GetUserController {
 
   async handle(req: Request, res: Response) {
     try {
-      const id = res.locals.userId
+      const { id } = req.params
       const user = await this.getUserService.execute(id)
       return res.json({ user })
     } catch (err) {

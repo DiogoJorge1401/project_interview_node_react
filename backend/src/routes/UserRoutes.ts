@@ -18,7 +18,7 @@ userRoutes.post(
 userRoutes.use(AuthMiddelware)
 
 userRoutes.get(
-  '/',
+  '/:id',
   async (req: Request, res: Response) =>
     await getUserController.handle(req, res)
 )
