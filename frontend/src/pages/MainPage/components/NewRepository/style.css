@@ -1,0 +1,21 @@
+.newRepositories {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.newRepositories__button {
+  color: white;
+  font-weight: 600;
+  padding: .5rem 1rem;
+  border-radius: .25rem;
+}
+.newRepositories__input{
+  padding: .5rem 1rem;
+  border-radius: .25rem;
+  width: 50%;
+}
+.newRepositories__input::placeholder{
+  font-size: .75rem;
+}
