@@ -6,7 +6,7 @@ interface Config {
 }
 
 export const config: Config = {
-  dbUri: process.env.MONGODB_URI_DEV,
+  dbUri: process.env.MONGODB_URI_PROD,
   saltWorkFactor: +process.env.SALT_WORK_FACTOR,
   privateKeyToken: process.env.ACCESS_TOKEN_PRIVATE_KEY,
   expiresIn: process.env.ACCESS_TOKEN_EXPIRES_IN,

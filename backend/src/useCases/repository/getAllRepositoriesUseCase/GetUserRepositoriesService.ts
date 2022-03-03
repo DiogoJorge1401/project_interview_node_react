@@ -1,13 +1,16 @@
 import { RepositoryDTO } from '@/dtos'
 import { RepositoryModel } from '@/models/Repository'
-import { UserModel } from '@/models/User'
 
 export class GetAllRepositoriesService {
   constructor(private repositoryDocument: RepositoryModel) {}
 
-  async execute() {
+  async execute(querySearch: string) {
     const repositories = (
-      await this.repositoryDocument.find()
+      await this.repositoryDocument.find({
+        url: {
+          $regex: querySearch,
+        },
+      })
     ).map((rep) => RepositoryDTO.getRepository(rep))
 
     return repositories
