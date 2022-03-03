@@ -8,7 +8,7 @@ export interface UserInput {
 export class UserDTO {
   static getUser(user: UserDocument) {
     const { email, _id, createdAt, updatedAt } = user
-    return { _id, email, createdAt, updatedAt }
+    return { _id, email }
   }
 }
 

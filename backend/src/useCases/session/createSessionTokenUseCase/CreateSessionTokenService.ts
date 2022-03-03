@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt'
 import { UserModel } from '@/models/User'
 import { AppError } from '@/errors/AppError'
 import { signJwt } from '@/utils/jwt.utils'
-import { UserInput } from '@/dtos'
+import { UserInput, UserDTO } from '@/dtos'
 
 export class CreateSessionTokenService {
   constructor(private userDocument: UserModel) {}
@@ -16,9 +16,11 @@ export class CreateSessionTokenService {
 
     if (!matchPassword) throw new AppError('User does not exist.', 404)
 
-
-    return signJwt({
-      _id: userExists._id,
-    })
+    return {
+      user: UserDTO.getUser(userExists),
+      token: signJwt({
+        _id: userExists._id,
+      }),
+    }
   }
 }
